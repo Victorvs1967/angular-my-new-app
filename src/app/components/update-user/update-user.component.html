@@ -1,1 +1,28 @@
-<p>update-user works!</p>
+<div class="container border border-info mt-4" width="200px">
+  <div [hidden]="submitted" style="width: 600px;" class="align_center">
+    <h2>Update User</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="user.name" />
+      </div>
+      <div class="form-group">
+        <label for="name">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="user.email" />
+      </div>
+      <div class="form-group">
+        <label for="name">Occupation</label>
+        <input type="text" class="form-control" id="occupation" name="occupation" required [(ngModel)]="user.occupation" />
+      </div>
+      <div class="form-group">
+        <label for="name">Bio</label>
+        <input type="text" class="form-control" id="bio" name="bio" required [(ngModel)]="user.bio" />
+      </div>
+      <div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <button class="btn btn-primary float-right mt-2" (click)="usersList()">Back to User List</button>
+</div>
