@@ -1,0 +1,29 @@
+.mat-column-action,
+.mat-column-actionu,
+.mat-column-actiond {
+  flex: 0 0 10%;
+}
+.mat-header-cell {
+  background-color: navy;
+  color: white;
+}
+h2 {
+  text-align: center;
+}
+.border-class {
+  background-color: rgb(208, 216, 224);
+}
+.h2-class {
+  font-size: 40px;
+  font-weight: 500;
+  color: navy;
+}
+.tp-selection {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+.tp-margin {
+  margin: 0 10px;
+}

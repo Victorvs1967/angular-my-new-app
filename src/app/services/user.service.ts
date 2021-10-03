@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,22 @@ export class UserService {
   constructor(private httpClient: HttpClient) { }
 
   public getUsers(): Observable<any> {
-    return this.httpClient.get(this.baseUrl);
+    return this.httpClient.get(`${this.baseUrl}/users`);
   }
 
   public getUser(id: number): Observable<Object> {
-    return this.httpClient.get(`${this.baseUrl}/${id}`);
+    return this.httpClient.get(`${this.baseUrl}/user/${id}`);
+  }
+
+  public addUser(user: object): Observable<Object> {
+    return this.httpClient.post(`${this.baseUrl}/registration`, user);
+  }
+
+  public updateUser(id: number, value: any): Observable<Object> {
+    return this.httpClient.put(`${this.baseUrl}/userUpdate/${id}`, value);
+  }
+
+  public deleteUser(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseUrl}/deleteUser/${id}`);
   }
 }

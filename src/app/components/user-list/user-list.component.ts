@@ -12,15 +12,46 @@ export class UserListComponent implements OnInit {
 
   users!: User[];
   user: User = new User();
+  email!: string;
+  isLoading = true;
 
-  constructor(private userServise: UserService, private router: Router) { }
+  displayedColumns = ['name', 'email', 'occupation', 'action', 'actionu', 'actiond'];
+
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userServise.getUsers().subscribe(data => this.users = data);
+    this.userService.getUsers().subscribe(data => {
+      this.users = data;
+      this.isLoading = false;
+    });
   }
 
   userDetails(id: number) {
     this.router.navigate(['user', id]);
+  }
+
+  addUser() {
+    this.router.navigate(['add']);
+  }
+
+  editUser(id: number) {
+    this.router.navigate(['update', id]);
+  }
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe(data => this.ngOnInit(), error => console.log(error));
+  }
+
+  search() {
+    this.isLoading = true;
+    this.users = this.users.filter(res => {
+      if (!this.users || !this.email) {
+        this.userService.getUsers().subscribe(data => this.users = data)
+      } else {
+        (error: any) => console.log(error);
+      }
+      return res.email.toLocaleLowerCase().match(this.email.toLocaleLowerCase());
+    })
   }
 
 }

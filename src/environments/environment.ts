@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // baseUrl: 'https://jsonplaceholder.typicode.com/users',
-  baseUrl: 'https://ti-react-test.herokuapp.com/users',
+  baseUrl: 'https://ti-react-test.herokuapp.com',
 };
 
 /*
