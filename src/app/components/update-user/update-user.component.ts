@@ -17,6 +17,9 @@ export class UpdateUserComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = new User();
+    this.id = this.route.snapshot.params['id'];
+    this.userService.getUser(this.id).subscribe((data: any) => this.user = data, error => console.log(error));
   }
 
   editUser() {
@@ -31,7 +34,7 @@ export class UpdateUserComponent implements OnInit {
   }
 
   usersList() {
-    this.router.navigate(['users']);
+    this.router.navigate(['user']);
   }
 
 }
