@@ -1,0 +1,18 @@
+<div class="container">
+  <h2>User Details</h2>
+  <div *ngIf="user">
+    <div>
+      <label><b>Name: </b></label> {{ user.name }}
+    </div>
+    <div>
+      <label><b>Email: </b></label> {{ user.email }}
+    </div>
+    <div>
+      <label><b>Occupation: </b></label> {{ user.occupation }}
+    </div>
+    <div>
+      <label><b>Bio: </b></label> {{ user.bio }}
+    </div>
+  </div><br><br>
+  <button class="btn btn-primary" (click)="usersList()">Back to Users list</button>
+</div>
